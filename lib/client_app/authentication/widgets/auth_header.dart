@@ -11,12 +11,18 @@ class AuthHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
+
       children: [
         Text(title, style: TextStyles.heading(context).copyWith(
-          color: Color(0xFF3A3A3A)
+          color: Color(0xFF3A3A3A), fontSize: 28,
         )),
         const SizedBox(height: 8),
-        Text(subtitle, style: TextStyles.subtitle(context)),
+        Center(child: Text(subtitle, style: TextStyles.subtitle(context),
+          textAlign: TextAlign.center
+
+        ),
+        
+        ),
       ],
     );
   }

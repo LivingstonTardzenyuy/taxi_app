@@ -11,7 +11,22 @@ class TermsCheckbox extends StatelessWidget {
     return Row(
       children: [
         Checkbox(value: value, onChanged: onChanged),
-        const Expanded(child: Text('I have read and accept the Terms and Conditions')),
+         Expanded(
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'I have read and accept the ',
+                  style: TextStyle(color: Colors.black), // Normal text style
+                ),
+                TextSpan(
+                  text: 'Terms and Conditions',
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.black), // Bold text style
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }

@@ -7,7 +7,7 @@ import '../widgets/primary_button.dart';
 import '../widgets/social_button.dart';
 import '../widgets/terms_checkbox.dart';
 import 'verification_screen.dart';
-import 'sign_in_screen.dart';
+// import 'sign_in_screen.dart';
 
 class CreateAccountScreen extends StatefulWidget {
   const CreateAccountScreen({Key? key}) : super(key: key);
