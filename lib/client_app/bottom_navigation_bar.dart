@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
+import 'package:taxi_app/client_app/features/bookings/views/destination_screen.dart';
 import 'package:taxi_app/client_app/features/chat/chat.dart';
 import 'package:taxi_app/client_app/features/home/home.dart';
 import 'package:taxi_app/client_app/features/profile/profile.dart';
@@ -18,7 +19,9 @@ class _ClientBottomNavigationBarState extends State<ClientBottomNavigationBar> {
 
   final List<Widget> _screens = [
     const HomeScreen(),
-    const BookingScreen(),
+    // const BookingScreen(),
+    const DestinationScreen(),
+
     const ChatScreen(),
     const SavedPlacesScreen(),
     const ProfileScreen(),
