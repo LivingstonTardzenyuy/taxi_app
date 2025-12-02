@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'find_ride.dart';
+
 class ScheduleRideScreen extends StatefulWidget {
   const ScheduleRideScreen({Key? key}) : super(key: key);
 
@@ -12,6 +14,8 @@ class ScheduleRideScreen extends StatefulWidget {
 class _ScheduleRideScreenState extends State<ScheduleRideScreen> {
   DateTime selectedDate = DateTime.now();
   bool rideNow = true;
+  final today = DateTime.now();
+  late final normalizedToday = DateTime(today.year, today.month, today.day);
 
   @override
   Widget build(BuildContext context) {
@@ -124,13 +128,13 @@ class _ScheduleRideScreenState extends State<ScheduleRideScreen> {
                     height: 150,
                     child: CupertinoDatePicker(
                       mode: CupertinoDatePickerMode.date,
-                      initialDateTime: selectedDate,
-                      minimumDate: DateTime.now(),
+                      initialDateTime: DateTime(selectedDate.year, selectedDate.month, selectedDate.day),
+                      minimumDate: normalizedToday,
                       maximumDate: DateTime(2030),
                       onDateTimeChanged: (DateTime newDate) {
                         setState(() {
                           selectedDate = newDate;
-                          rideNow = false; // switch to scheduled ride
+                          rideNow = false;
                         });
                       },
                     ),
@@ -150,23 +154,24 @@ class _ScheduleRideScreenState extends State<ScheduleRideScreen> {
                         ),
                       ),
                       onPressed: () {
-                        if (rideNow) {
-                          // Book immediate ride logic
-                          Get.snackbar(
-                            "Ride Booked",
-                            "Your immediate ride is confirmed!",
-                            backgroundColor: Colors.green.shade50,
-                            colorText: Colors.black,
-                          );
-                        } else {
-                          // Schedule ride logic
-                          Get.snackbar(
-                            "Ride Scheduled",
-                            "Ride scheduled for ${selectedDate.toLocal().toString().split(' ')[0]}",
-                            backgroundColor: Colors.blue.shade50,
-                            colorText: Colors.black,
-                          );
-                        }
+                        // if (rideNow) {
+                        //   // Book immediate ride logic
+                        //   Get.snackbar(
+                        //     "Ride Booked",
+                        //     "Your immediate ride is confirmed!",
+                        //     backgroundColor: Colors.green.shade50,
+                        //     colorText: Colors.black,
+                        //   );
+                        // } else {
+                        //   // Schedule ride logic
+                        //   Get.snackbar(
+                        //     "Ride Scheduled",
+                        //     "Ride scheduled for ${selectedDate.toLocal().toString().split(' ')[0]}",
+                        //     backgroundColor: Colors.blue.shade50,
+                        //     colorText: Colors.black,
+                        //   );
+                        // }
+                        Get.to((RideFindScreen()));
                       },
                       child: const Text(
                         "Confirm",

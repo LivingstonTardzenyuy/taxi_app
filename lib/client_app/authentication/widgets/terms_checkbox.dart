@@ -4,7 +4,7 @@ class TermsCheckbox extends StatelessWidget {
   final bool value;
   final ValueChanged<bool?> onChanged;
 
-  const TermsCheckbox({Key? key, required this.value, required this.onChanged}) : super(key: key);
+  TermsCheckbox({Key? key, required this.value, required this.onChanged}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

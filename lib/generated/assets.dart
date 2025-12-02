@@ -2,9 +2,13 @@
 class Assets {
   Assets._();
 
+  static const String bookingBooking = 'assets/booking/booking.jpg';
+  static const String bookingLandRover = 'assets/booking/land_rover.png';
+  static const String bookingSearchingBookingRide = 'assets/booking/searching_booking_ride.png';
+  static const String bookingTeslaCyberTruck = 'assets/booking/tesla_cyber_truck.png';
   static const String onboardingAppLogo = 'assets/onboarding/app_logo.png';
   static const String onboardingEnableNotification = 'assets/onboarding/enable_notification.png';
-  static const String onboardingImg = 'enable_pull_access.png';
+  static const String onboardingEnablePullAccess = 'assets/onboarding/enable_pull_access.png';
   static const String onboardingOnboardingFive = 'assets/onboarding/onboarding_five.png';
   static const String onboardingOnboardingFour = 'assets/onboarding/onboarding_four.png';
   static const String onboardingOnboardingOne = 'assets/onboarding/onboarding_one.png';
