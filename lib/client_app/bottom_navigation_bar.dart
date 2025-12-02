@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
 import 'package:taxi_app/client_app/features/bookings/views/destination_screen.dart';
-import 'package:taxi_app/client_app/features/chat/chat.dart';
+import 'package:taxi_app/client_app/features/chat/views/chat.dart';
 import 'package:taxi_app/client_app/features/home/home.dart';
 import 'package:taxi_app/client_app/features/profile/profile.dart';
 import 'package:taxi_app/client_app/features/saved_places/saved_places.dart';

@@ -3,6 +3,7 @@ class Assets {
   Assets._();
 
   static const String bookingBooking = 'assets/booking/booking.jpg';
+  static const String bookingImg = 'profile.png';
   static const String bookingLandRover = 'assets/booking/land_rover.png';
   static const String bookingSearchingBookingRide = 'assets/booking/searching_booking_ride.png';
   static const String bookingTeslaCyberTruck = 'assets/booking/tesla_cyber_truck.png';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
+import 'package:taxi_app/client_app/features/bookings/views/ride_accepted_message.dart';
 import 'package:taxi_app/client_app/features/bookings/views/schedule_ride.dart';
 
 class RideFindScreen extends StatelessWidget {
@@ -28,10 +29,6 @@ class RideFindScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(16),
                   child: Row(
                     children: [
-                      IconButton(
-                        icon: const Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: () => Get.back(),
-                      ),
                       const Text(
                         'Book Ride',
                         style: TextStyle(
@@ -61,74 +58,106 @@ class RideFindScreen extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       // Animated Loading Indicator with Car Icon
-                      Container(
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          color: const Color(0xFF2B6777).withOpacity(0.1),
-                          shape: BoxShape.circle,
-                        ),
-                        child:  Center(
-                          child: Image.asset(
-                            'assets/booking/searching_booking_ride.png',
-                            fit: BoxFit.cover,
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "Ride Found",
+                            style: TextStyle(
+                              fontSize: 14, fontWeight: FontWeight.w800
+                            ),
                           ),
-                        ),
+                          Text("23 mins")
+                        ],
                       ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 20),
+                      Container(
+                        padding: const EdgeInsets.symmetric(vertical: 12),
+                        child: Row(
+                          children: [
+                            // Avatar
+                            Container(
+                              width: 46,
+                              height: 46,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color(0xFFDDEFF8), // Light teal-like background
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: Image.asset(
+                                  "assets/profile_icon.png", // your avatar illustration
+                                  fit: BoxFit.contain,
+                                ),
+                              ),
+                            ),
 
-                      const Text(
-                        'Searching Ride...',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                      const SizedBox(height: 8),
-                      const Text(
-                        'This may take a few seconds',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: Colors.grey,
-                        ),
-                      ),
-                      const SizedBox(height: 32),
+                            const SizedBox(width: 14),
 
+                            // Name + Car Model
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  const Text(
+                                    "Kendrick Anne",
+                                    style: TextStyle(
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w600,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  SizedBox(height: 2),
+                                  Text(
+                                    "Land Rover",
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+
+                            // Price + Plate Number (Right aligned)
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                const Text(
+                                  "\$300",
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                const SizedBox(height: 2),
+                                Text(
+                                  "WE25681RT",
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 20),
                       // Book Land Rover Button
                       Container(
                         width: double.infinity,
                         child: PrimaryButton(
                           label: 'Book Land Rover',
                           onPressed: () {
-                            Get.to(() => const ScheduleRideScreen());
+                            Get.to(() => const RideAcceptedMessage());
 
                             // Add booking confirmation logic here
                           },
                         ),
                       ),
-                      // SizedBox(
-                      //   width: double.infinity,
-                      //   height: 50,
-                      //   child: ElevatedButton(
-                      //     style: ElevatedButton.styleFrom(
-                      //       backgroundColor: const Color(0xFF2B6777),
-                      //       shape: RoundedRectangleBorder(
-                      //         borderRadius: BorderRadius.circular(8),
-                      //       ),
-                      //     ),
-                      //     onPressed: () {
-                      //       // Add booking confirmation logic here
-                      //     },
-                      //     child: const Text(
-                      //       'Book Land Rover',
-                      //       style: TextStyle(
-                      //         color: Colors.white,
-                      //         fontSize: 16,
-                      //         fontWeight: FontWeight.w600,
-                      //       ),
-                      //     ),
-                      //   ),
-                      // ),
+
                     ],
                   ),
                 ),
