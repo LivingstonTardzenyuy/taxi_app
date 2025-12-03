@@ -104,9 +104,9 @@ class ChatScreen extends StatelessWidget {
   // ──────────────────────────────────────────────
   // Chat List Tile (Exactly like screenshot)
   // ──────────────────────────────────────────────
-  Future<Widget> chatTile(String name, String subtitle, String time) async {
+  Widget chatTile(String name, String subtitle, String time) {
     return InkWell(
-      onTap: await Get.to(ChatDetailScreen(doctorName: "Doc. Kongnyuy")),
+      onTap: () => Get.to(() => ChatDetailScreen(doctorName: "Doc. Kongnyuy")),
       child: Container(
         margin: const EdgeInsets.only(left: 12, right: 12, bottom: 10),
         padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),

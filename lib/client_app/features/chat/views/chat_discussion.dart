@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/client_app/features/chat/views/chat_call.dart';
 
 class ChatDetailScreen extends StatefulWidget {
   final String doctorName;
@@ -19,7 +22,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       "Lorem ipsum pulvinar metus facilisi sagittis dictum ipsum aliquam ultrices praesent ultricies commodo scelerisque.",
       "isMe": false,
       "time": "14:23",
-      "avatar": "assets/avatar.png",
+      "avatar": "assets/images/img.png",
       "sender": "Kendrick"
     },
     {
@@ -27,7 +30,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
       "Lorem ipsum pulvinar metus facilisi sagittis dictum ipsum aliquam ultrices praesent ultricies commodo scelerisque.",
       "isMe": true,
       "time": "14:23",
-      "avatar": "assets/avatar.png",
+      "avatar": "assets/images/img.png",
       "sender": "Kendrick"
     }
   ];
@@ -46,9 +49,9 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     );
   }
 
-  AppBar _buildChatHeader() {
+  PreferredSizeWidget _buildChatHeader() {
     return AppBar(
-      backgroundColor: Color(0xFF0B6F78),
+      // backgroundColor: Color(0xFF0B6F78),
       elevation: 0,
       leading: Icon(Icons.arrow_back, color: Colors.white),
       title: Row(
@@ -62,15 +65,22 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(widget.doctorName,
-                  style: TextStyle(color: Colors.white, fontSize: 16)),
+                  style: TextStyle(fontSize: 16)),
               Text("Offline",
-                  style: TextStyle(color: Colors.white70, fontSize: 12)),
+                  style: TextStyle(fontSize: 12)),
             ],
           ),
         ],
       ),
       actions: [
-        Icon(Icons.call, color: Colors.white),
+        InkWell(
+          onTap: () => Get.to(() => CallScreen()),
+          child: CircleAvatar(
+              backgroundColor: Color(0xFF0B6F78),
+              child: Icon(Icons.call_outlined, color: Colors.white
+              )
+          ),
+        ),
         SizedBox(width: 16),
       ],
     );
@@ -99,31 +109,49 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             mainAxisAlignment:
             isMe ? MainAxisAlignment.end : MainAxisAlignment.start,
             children: [
-              if (!isMe) ...[
-                CircleAvatar(
-                  radius: 15,
-                  backgroundImage: AssetImage(msg["avatar"]),
-                ),
-                SizedBox(width: 10),
-              ],
+
               Flexible(
-                child: Container(
-                  padding: EdgeInsets.all(15),
-                  decoration: BoxDecoration(
-                    color: isMe ? Color(0xFF0B6F78) : Colors.white,
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  child: Text(
-                    msg["text"],
-                    style: TextStyle(
-                      color: isMe ? Colors.white : Colors.black87,
-                      fontSize: 14,
+                child: Column(
+                  children: [
+                    Container(
+                      padding: EdgeInsets.only(right: 15),
+                      decoration: BoxDecoration(
+                        color: isMe ? Color(0xFF0B6F78) : Colors.white,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Text(
+                        msg["text"],
+                        style: TextStyle(
+                          color: isMe ? Colors.white : Colors.black87,
+                          fontSize: 14,
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 5,),
+                    if (!isMe) ...[
+                      Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 15,
+                            backgroundImage: AssetImage(msg["avatar"]),
+                          ),
+                          const SizedBox(width: 5,),
+                          Text(
+                            msg["sender"],
+                            style: TextStyle(
+                              color: isMe ? Colors.white : Colors.black87,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                      SizedBox(width: 10),
+                    ],
+                  ],
                 ),
               ),
               if (isMe) ...[
-                SizedBox(width: 10),
+                // SizedBox(width: 10),
                 CircleAvatar(
                   radius: 15,
                   backgroundImage: AssetImage(msg["avatar"]),
@@ -132,19 +160,21 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             ],
           ),
 
-          SizedBox(height: 4),
+          SizedBox(height: 9),
 
           // Timestamp
-          Padding(
-            padding: EdgeInsets.only(
-              left: isMe ? 0 : 40,
-              right: isMe ? 40 : 0,
+          Center(
+            child: Padding(
+              padding: EdgeInsets.only(
+                left: isMe ? 0 : 40,
+                right: isMe ? 40 : 0,
+              ),
+              child: Text(
+                msg["time"],
+                style: TextStyle(fontSize: 11, color: Colors.grey),
+              ),
             ),
-            child: Text(
-              msg["time"],
-              style: TextStyle(fontSize: 11, color: Colors.grey),
-            ),
-          ),
+          )
         ],
       ),
     );
