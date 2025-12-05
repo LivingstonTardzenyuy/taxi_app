@@ -114,7 +114,7 @@ class ConfirmLocationScreen extends StatelessWidget {
               bottom: 210,
               left: MediaQuery.of(context).size.width * 0.42,
               child: Image.asset(
-                'assets/car_icon.png',
+                'assets/images/car_icon.png',
                 width: 60,
               ),
             ),

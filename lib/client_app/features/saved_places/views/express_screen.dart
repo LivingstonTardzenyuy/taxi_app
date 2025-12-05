@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 
-class AgenciesScreen extends StatefulWidget {
-  const AgenciesScreen({super.key});
+import 'mathea_express_screen.dart';
+
+class ExpressScreen extends StatefulWidget {
+  const ExpressScreen({super.key});
 
   @override
-  State<AgenciesScreen> createState() => _AgenciesScreenState();
+  State<ExpressScreen> createState() => _ExpressScreenState();
 }
 
-class _AgenciesScreenState extends State<AgenciesScreen> {
+class _ExpressScreenState extends State<ExpressScreen> {
   String departureTown = "Yaounde";
   String destinationTown = "Maroua";
 
@@ -161,12 +165,13 @@ class _AgenciesScreenState extends State<AgenciesScreen> {
                     final agency = agencies[index];
                     return GestureDetector(
                       onTap: () {
-                        print("You clicked me to book me");
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("You clicked me to book me"),
-                          ),
-                        );
+                        Get.to(MatheaExpressScreen());
+                        // print("You clicked me to book me");
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   const SnackBar(
+                        //     content: Text("You clicked me to book me"),
+                        //   ),
+                        // );
                       },
                       child: Container(
                         margin: const EdgeInsets.only(bottom: 14),
