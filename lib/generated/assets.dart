@@ -8,6 +8,7 @@ class Assets {
   static const String bookingSearchingBookingRide = 'assets/booking/searching_booking_ride.png';
   static const String bookingTeslaCyberTruck = 'assets/booking/tesla_cyber_truck.png';
   static const String imagesImg = 'assets/images/img.png';
+  static const String imagesImg1 = 'car_icon.png';
   static const String onboardingAppLogo = 'assets/onboarding/app_logo.png';
   static const String onboardingEnableNotification = 'assets/onboarding/enable_notification.png';
   static const String onboardingEnablePullAccess = 'assets/onboarding/enable_pull_access.png';

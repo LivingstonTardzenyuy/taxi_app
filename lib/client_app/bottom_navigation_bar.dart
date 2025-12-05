@@ -4,8 +4,9 @@ import 'package:taxi_app/client_app/features/bookings/views/destination_screen.d
 import 'package:taxi_app/client_app/features/chat/views/chat.dart';
 import 'package:taxi_app/client_app/features/home/home.dart';
 import 'package:taxi_app/client_app/features/profile/profile.dart';
-import 'package:taxi_app/client_app/features/saved_places/saved_places.dart';
 import 'package:taxi_app/theme/colors.dart';
+
+import 'features/saved_places/views/saved_places.dart';
 
 class ClientBottomNavigationBar extends StatefulWidget {
   const ClientBottomNavigationBar({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class _ClientBottomNavigationBarState extends State<ClientBottomNavigationBar> {
     const DestinationScreen(),
 
     const ChatScreen(),
-    const SavedPlacesScreen(),
+    SavedPlacesScreen(),
     const ProfileScreen(),
   ];
 
