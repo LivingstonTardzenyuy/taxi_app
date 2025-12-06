@@ -3,12 +3,13 @@ class Assets {
   Assets._();
 
   static const String bookingBooking = 'assets/booking/booking.jpg';
+  static const String bookingImg = 'arrived_detination.png';
   static const String bookingLandRover = 'assets/booking/land_rover.png';
   static const String bookingProfile = 'assets/booking/profile.png';
   static const String bookingSearchingBookingRide = 'assets/booking/searching_booking_ride.png';
   static const String bookingTeslaCyberTruck = 'assets/booking/tesla_cyber_truck.png';
+  static const String imagesCarIcon = 'assets/images/car_icon.png';
   static const String imagesImg = 'assets/images/img.png';
-  static const String imagesImg1 = 'car_icon.png';
   static const String onboardingAppLogo = 'assets/onboarding/app_logo.png';
   static const String onboardingEnableNotification = 'assets/onboarding/enable_notification.png';
   static const String onboardingEnablePullAccess = 'assets/onboarding/enable_pull_access.png';

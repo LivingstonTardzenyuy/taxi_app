@@ -43,7 +43,7 @@ class _ScheduleRideScreenState extends State<ScheduleRideScreen> {
                     icon: const Icon(Icons.arrow_back, color: Colors.white),
                     onPressed: () => Get.back(),
                   ),
-                  const SizedBox(width: 8),
+                  Spacer(),
                   const Text(
                     "Book ride",
                     style: TextStyle(
@@ -52,6 +52,8 @@ class _ScheduleRideScreenState extends State<ScheduleRideScreen> {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  Spacer(),
+                  Text('.')
                 ],
               ),
             ),

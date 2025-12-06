@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:taxi_app/client_app/features/bookings/views/ride_not_found.dart';
 
 import '../../../authentication/widgets/primary_button.dart';
 
@@ -35,7 +36,7 @@ class RideAcceptedMessage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.all(28),
                   child: Image.asset(
-                    "assets/icons/accepted_icon.png",
+                    "assets/booking/tesla_cyber_truck.png",
                     fit: BoxFit.contain,
                   ),
                 ),
@@ -65,7 +66,7 @@ class RideAcceptedMessage extends StatelessWidget {
                     "check your booking on the “Bookings”",
                 style: TextStyle(
                   fontSize: 15,
-                  color: Colors.grey,
+                  // color: Colors.grey,
                   height: 1.4,
                 ),
                 textAlign: TextAlign.center,
@@ -82,6 +83,7 @@ class RideAcceptedMessage extends StatelessWidget {
                 child: PrimaryButton(
                   label: 'View E-Receipt',
                   onPressed: () {
+                    Get.to(RideNotFoundScreen());
                     // navigate or show receipt
                   },
                 ),

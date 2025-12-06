@@ -1,8 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 import 'package:taxi_app/client_app/bottom_navigation_bar.dart';
+import 'package:taxi_app/client_app/features/bookings/views/book_ride_details_screen.dart';
 
 import '../../../../common/widgets/location_rounded.dart';
 import '../../../authentication/widgets/auth_text_field.dart';
@@ -16,16 +19,6 @@ class ConfirmPickupLocation extends StatelessWidget {
     TextEditingController pickUpController = TextEditingController();
 
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text('Destination'),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              // TODO: Implement back navigation
-            },
-          ),
-        ),
         body: Stack(
           children: [
             Image.asset(
@@ -37,14 +30,37 @@ class ConfirmPickupLocation extends StatelessWidget {
 
             Column(
               children: [
-                const SizedBox(height: 70),
+                const SizedBox(height: 140),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: LocationInputField(hintText: 'Placibo Rety street down town 2234',),
                 )
               ],
             ),
-
+            Positioned(
+              top: 60,
+              left: 0,
+              right: 0,
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back, color: Colors.black),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Destination",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Spacer(),
+                  Text('.'),
+                ],
+              ),
+            ),
             // Spacer(),
             Positioned(
               left: 0,
@@ -54,7 +70,9 @@ class ConfirmPickupLocation extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: PrimaryButton(
                   label: "Confirm Location",
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(BookRideDetailsScreen());
+                  },
                 ),
               ),
             )

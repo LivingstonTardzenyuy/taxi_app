@@ -146,16 +146,28 @@ class RideFindScreen extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       // Book Land Rover Button
-                      Container(
-                        width: double.infinity,
-                        child: PrimaryButton(
-                          label: 'Book Land Rover',
-                          onPressed: () {
-                            Get.to(() => const RideAcceptedMessage());
+                      Row(
+                        children: [
+                          Expanded(
+                            child: TextButton(
+                                onPressed: () {},
+                                child: Text('Cancle')
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              // width: double.infinity,
+                              child: PrimaryButton(
+                                label: 'Send Request',
+                                onPressed: () {
+                                  Get.to(() => const RideAcceptedMessage());
 
-                            // Add booking confirmation logic here
-                          },
-                        ),
+                                  // Add booking confirmation logic here
+                                },
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
 
                     ],

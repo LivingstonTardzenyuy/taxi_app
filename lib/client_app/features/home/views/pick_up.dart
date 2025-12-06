@@ -19,18 +19,19 @@ class PickUpScreen extends StatelessWidget {
     TextEditingController pickUpController = TextEditingController();
 
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Destination'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            // TODO: Implement back navigation
-          },
-        ),
-      ),
+      // appBar: AppBar(
+      //   centerTitle: true,
+      //   title: const Text('Destination'),
+      //   leading: IconButton(
+      //     icon: const Icon(Icons.arrow_back),
+      //     onPressed: () {
+      //       // TODO: Implement back navigation
+      //     },
+      //   ),
+      // ),
         body: Stack(
           children: [
+
             Image.asset(
               'assets/booking/booking.jpg',
               fit: BoxFit.cover,
@@ -40,14 +41,37 @@ class PickUpScreen extends StatelessWidget {
 
             Column(
               children: [
-                const SizedBox(height: 70),
+                const SizedBox(height: 140),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 8.0),
                   child: LocationInputField(hintText: 'Placibo Rety street down town 2234',),
                 )
               ],
             ),
-
+            Positioned(
+              top: 60,
+              left: 0,
+              right: 0,
+              child: Row(
+                children: [
+                  IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back, color: Colors.black),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Pick-up",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18,
+                    ),
+                  ),
+                  Spacer(),
+                  Text('.'),
+                ],
+              ),
+            ),
             // Spacer(),
             Positioned(
               left: 0,
