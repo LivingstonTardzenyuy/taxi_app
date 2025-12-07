@@ -23,17 +23,24 @@ class DestinationScreen extends StatelessWidget {
           SafeArea(
             child: Container(
               padding: const EdgeInsets.all(16),
-              color: Colors.black.withOpacity(0.3), // overlay for readability
+              // color: Colors.black.withOpacity(0.3), // overlay for readability
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   // Custom App Bar
+                  // IconButton(
+                  //     onPressed: () {
+                  //       Get.back();
+                  //     },
+                  //     icon: Icon(Icons.arrow_back)
+                  // ),
                   Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back, color: Colors.white),
+                        icon: const Icon(Icons.arrow_back, color: Colors.black),
                         onPressed: () => Get.back(),
                       ),
+                      Spacer(),
                       const Text(
                         'Destination',
                         style: TextStyle(
@@ -42,6 +49,8 @@ class DestinationScreen extends StatelessWidget {
                           color: Colors.black,
                         ),
                       ),
+                      Spacer(),
+                      Text('.')
                     ],
                   ),
 

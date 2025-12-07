@@ -5,6 +5,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 import 'package:taxi_app/client_app/bottom_navigation_bar.dart';
+import 'package:taxi_app/client_app/features/bookings/views/destination_screen.dart';
 
 import '../../../../common/widgets/location_rounded.dart';
 import '../../../authentication/widgets/auth_text_field.dart';
@@ -82,7 +83,8 @@ class PickUpScreen extends StatelessWidget {
                 child: PrimaryButton(
                   label: "Confirm Location",
                   onPressed: () {
-                    Get.to(ConfirmPickupLocation());
+                    // Get.to(ConfirmPickupLocation());
+                    Get.to(DestinationScreen());
                     },
                 ),
               ),
