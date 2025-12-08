@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/agencyAdmin/booking/views/booking_details.dart';
+import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
-class BookingsScreen extends StatelessWidget {
-  const BookingsScreen({super.key});
+class AdminBookingsScreen extends StatelessWidget {
+  const AdminBookingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -66,19 +70,12 @@ class BookingsScreen extends StatelessWidget {
               SizedBox(
                 width: double.infinity,
                 height: 52,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFF176B6B),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40),
-                    ),
-                  ),
-                  onPressed: () {},
-                  child: const Text(
-                    "Reset Filters",
-                    style: TextStyle(fontSize: 17, color: Colors.white),
-                  ),
-                ),
+                child: PrimaryButton(
+                    label: "Reset Filters",
+                    onPressed: () {
+                      Get.to(BookingDetailScreen());
+                    }
+                )
               ),
 
               const SizedBox(height: 25),
