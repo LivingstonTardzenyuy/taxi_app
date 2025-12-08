@@ -71,6 +71,7 @@ class _ClientOnboardingState extends State<ClientOnboarding> {
 			body: SafeArea(
 				child: Column(
 					children: [
+						const SizedBox(height: 170,),
 						Expanded(
 							child: PageView.builder(
 								controller: _controller,

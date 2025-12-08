@@ -131,14 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
           color: isSelected ? const Color(0xFF226E73) : Colors.grey.shade300,
         ),
         borderRadius: BorderRadius.circular(12),
-        color: isSelected ? const Color(0xFF226E73).withOpacity(0.1) : Colors.white,
+        color: isSelected ? const Color(0xFF226E73) : Colors.white,
       ),
       child: Column(
         children: [
           Icon(
             icon,
             size: 80,
-            color: isSelected ? const Color(0xFF2B6777) : Colors.black,
+            color: isSelected ? Colors.white : AppColors.primaryColor,
           ),
           const SizedBox(height: 8),
           Text(
@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
             style: TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.w600,
-              color: isSelected ? const Color(0xFF2B6777) : Colors.black,
+              color: isSelected ? Colors.white : AppColors.primaryColor,
             ),
           ),
           const SizedBox(height: 4),
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
             subTitle,
             style: TextStyle(
               fontSize: 11,
-              color: Colors.grey.shade600,
+              color: isSelected ? Colors.white : AppColors.primaryColor,
             ),
           ),
         ],

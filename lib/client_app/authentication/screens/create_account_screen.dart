@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/agencyAdmin/home/views/home.dart';
 import 'package:taxi_app/client_app/authentication/screens/sign_in_client.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/auth_header.dart';
@@ -94,6 +97,21 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                       ],
                     ),
                   ),
+                ),
+
+
+                const SizedBox(height: 100,),
+                TextButton(
+                    onPressed: () {
+                      Get.to(AdminDashboardScreen());
+                    },
+                    child: Text(
+                      "Agency Admin",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18
+                      ),
+                    )
                 )
               ],
             ),

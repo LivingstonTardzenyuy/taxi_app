@@ -57,11 +57,11 @@ class _AuthTextFieldState extends State<AuthTextField> {
             borderRadius: BorderRadius.circular(8),
             borderSide: const BorderSide(color: Colors.grey), // Set enabled border color to grey
           ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            // borderSide: const BorderSide(color: Colors.grey), // Set focused border color to grey
-            borderSide: const BorderSide(color: Color(0xFFC7C7C766)), // Set border color to grey
-          ),
+          // focusedBorder: OutlineInputBorder(
+          //   borderRadius: BorderRadius.circular(8),
+          //   // borderSide: const BorderSide(color: Colors.grey), // Set focused border color to grey
+          //   borderSide: const BorderSide(color: Color(0xFFC7C7C766)), // Set border color to grey
+          // ),
           suffixIcon: widget.showPasswordToggle
               ? IconButton(
             icon: Icon(

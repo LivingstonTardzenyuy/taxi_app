@@ -18,9 +18,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         scaffoldBackgroundColor: Colors.white,
+        canvasColor: Colors.white,      // for Material surfaces like Drawer
+        cardColor: Colors.white,        // cards
+        dialogBackgroundColor: Colors.white,
+        primaryColor: Colors.deepPurple,
+        appBarTheme: const AppBarTheme(
+          color: Colors.white,
+          iconTheme: IconThemeData(color: Colors.black),
+          titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
+        ),
       ),
-        // home: const ClientOnboarding(),
-        home: LogoScreen(),
+      home: LogoScreen(),
     );
   }
 }
