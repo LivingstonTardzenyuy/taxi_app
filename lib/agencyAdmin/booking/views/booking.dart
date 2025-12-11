@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
-import 'package:taxi_app/agencyAdmin/booking/views/booking_details.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
+import 'assign_driver.dart';
 class AdminBookingsScreen extends StatelessWidget {
   const AdminBookingsScreen({super.key});
 
@@ -64,6 +64,7 @@ class AdminBookingsScreen extends StatelessWidget {
                 ),
               ),
 
+              
               const SizedBox(height: 16),
 
               /// RESET FILTERS BUTTON
@@ -73,7 +74,7 @@ class AdminBookingsScreen extends StatelessWidget {
                 child: PrimaryButton(
                     label: "Reset Filters",
                     onPressed: () {
-                      Get.to(BookingDetailScreen());
+                      Get.to(AssignDriverScreen());
                     }
                 )
               ),
@@ -139,7 +140,7 @@ class AdminBookingsScreen extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-              fontSize: 15,
+              fontSize: 12,
               fontWeight: FontWeight.w600,
               color: Colors.black87,
             ),

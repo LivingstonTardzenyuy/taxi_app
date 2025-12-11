@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/assigned_trip.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
 
 import '../booking/views/booking.dart';
@@ -51,7 +52,7 @@ class AdminDrawer extends StatelessWidget {
                       title: "Dispatchers",
                       isActive: activePage == "Dispatchers",
                         onTap: () {
-
+                          Get.to(TripDetailsScreen());
                         }
                     ),
                     _menuItem(
