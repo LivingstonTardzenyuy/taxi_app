@@ -149,7 +149,7 @@ class _TripDetailsScreenState extends State<TripDetailsScreen>
                   const SizedBox(height: 20),
 
                   SizedBox(
-                    height: 380,
+                    height: 580,
                     child: TabBarView(
                       controller: _tabController,
                       children: [

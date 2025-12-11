@@ -4,6 +4,7 @@ import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/assigned_trip.d
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
 
 import '../booking/views/booking.dart';
+import '../pricing_model/view/pricing_model.dart';
 
 class AdminDrawer extends StatelessWidget {
   final String activePage;
@@ -100,7 +101,7 @@ class AdminDrawer extends StatelessWidget {
                       title: "Price model",
                       isActive: activePage == "Price model",
                         onTap: () {
-
+                          Get.to(PricingModelScreen());
                         }
                     ),
                     _menuItem(
