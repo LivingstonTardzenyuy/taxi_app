@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/agencyAdmin/pricing_model/view/pricing_model_detail.dart';
+import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
+import 'package:taxi_app/theme/colors.dart';
 
 import '../../../client_app/authentication/widgets/auth_text_field.dart';
 
@@ -76,10 +81,23 @@ class PricingModelScreen extends StatelessWidget {
               const SizedBox(height: 18),
 
               // Base fare section
-              const SectionCard(
-                title: 'Base Fare',
-                child: AuthTextField(hint: "\$12")
-                ,
+              Row(
+                children: [
+                  Expanded(
+                    child: const SectionCard(
+                      title: 'Base Fare',
+                      child: AuthTextField(hint: "\$12")
+                      ,
+                    ),
+                  ),
+                  Expanded(
+                    child: const SectionCard(
+                      title: '',
+                      child: AuthTextField(hint: "\$20")
+                      ,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 12),
 
@@ -107,14 +125,38 @@ class PricingModelScreen extends StatelessWidget {
                       const SizedBox(height: 12),
 
                       // Add button
-                      OutlinedButton.icon(
-                        onPressed: () {},
-                        icon: const Icon(Icons.add, size: 18),
-                        label: const Text('Add New Km Range'),
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                          side: BorderSide(color: primary.withOpacity(0.1)),
-                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                      Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(
+                              color: AppColors.primaryColor
+                          )
+                        ),
+                        child: OutlinedButton.icon(
+                          onPressed: () {},
+                          icon: const Icon(Icons.add, size: 18),
+                          label: Container(
+                              child: GestureDetector(
+                                onTap: () {
+                                  showModalBottomSheet(
+                                    context: context,
+                                    isScrollControlled: true,
+                                    backgroundColor: Colors.transparent,
+                                    builder: (_) => const AddKmRangeBottomSheet(),
+                                  );
+                                },
+                                child: const Text(
+                                    'Add New Km Range',
+                                  style: TextStyle(
+                                    color: AppColors.primaryColor
+                                  ),
+                                ),
+                              )),
+                          style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+                            side: BorderSide(color: primary.withOpacity(0.1)),
+                            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+                          ),
                         ),
                       ),
                     ],
@@ -329,6 +371,74 @@ class _MoneyBox extends StatelessWidget {
         label,
         style: const TextStyle(fontWeight: FontWeight.w600),
       ),
+    );
+  }
+}
+
+
+
+
+class AddKmRangeBottomSheet extends StatelessWidget {
+  const AddKmRangeBottomSheet({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final primary = const Color(0xFF0F6F6A);
+
+    return DraggableScrollableSheet(
+      initialChildSize: 0.45,
+      minChildSize: 0.30,
+      maxChildSize: 0.65,
+      builder: (context, scrollController) {
+        return Container(
+          padding: const EdgeInsets.all(25),
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+          ),
+          child: SingleChildScrollView(
+            controller: scrollController,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Title
+                const Text(
+                  "Add New Km Range",
+                  style: TextStyle(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 17,
+                  ),
+                ),
+                const SizedBox(height: 18),
+
+                // FROM
+                const Text("From"),
+                const SizedBox(height: 6),
+                const AuthTextField(hint: "0"),
+
+                const SizedBox(height: 16),
+
+                // TO
+                const Text("To"),
+                const SizedBox(height: 6),
+                const AuthTextField(hint: "0"),
+
+                const SizedBox(height: 40),
+
+                // CREATE BUTTON
+                SizedBox(
+                  width: double.infinity,
+                  child: PrimaryButton(
+                      label: "Create New KM Range",
+                      onPressed: () {
+                        Get.to(PricingModelDetailScreen());
+                      })
+                ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

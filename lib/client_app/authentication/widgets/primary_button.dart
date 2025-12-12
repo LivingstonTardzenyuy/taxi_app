@@ -5,18 +5,26 @@ class PrimaryButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
   final Color? color;  // Make this nullable
-
+  final Color? textColor;
+  final double? height;
   const PrimaryButton({
     Key? key,
     required this.label,
     required this.onPressed,
+    this.height,
+    this.textColor = Colors.white,
     this.color,  // This can now be null
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 60,
+      height: height,
+      decoration: BoxDecoration(
+        // border: Border.all(
+        //   color: Colors.grey
+        // )
+      ),
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
@@ -26,7 +34,8 @@ class PrimaryButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600),
+          style:  TextStyle(
+              color: textColor, fontWeight: FontWeight.w600),
         ),
       ),
     );

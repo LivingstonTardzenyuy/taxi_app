@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:taxi_app/agencyAdmin/admin_payment/view/payment.dart';
 import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/assigned_trip.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
 
@@ -117,7 +118,7 @@ class AdminDrawer extends StatelessWidget {
                       title: "Payments",
                       isActive: activePage == "Payments",
                         onTap: () {
-
+                          Get.to(AdminPaymentsScreen());
                         }
                     ),
                     const Spacer(),

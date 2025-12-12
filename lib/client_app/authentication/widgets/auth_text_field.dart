@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../theme/colors.dart';
+// colors import not required here
 
 class AuthTextField extends StatefulWidget {
   final String hint;
@@ -7,6 +7,7 @@ class AuthTextField extends StatefulWidget {
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool showPasswordToggle; // New optional parameter
+  final Widget? prefixIcon;
 
   const AuthTextField({
     Key? key,
@@ -15,6 +16,7 @@ class AuthTextField extends StatefulWidget {
     this.controller,
     this.keyboardType = TextInputType.text,
     this.showPasswordToggle = false, // Default to false
+    this.prefixIcon,
   }) : super(key: key);
 
   @override
@@ -39,6 +41,9 @@ class _AuthTextFieldState extends State<AuthTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10)
+      ),
       height: 46,
       child: TextField(
         controller: widget.controller,
@@ -47,6 +52,10 @@ class _AuthTextFieldState extends State<AuthTextField> {
         decoration: InputDecoration(
           hintText: widget.hint,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+          prefixIcon: widget.prefixIcon != null ? Padding(
+            padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+            child: SizedBox(width: 24, height: 24, child: widget.prefixIcon),
+          ) : null,
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
