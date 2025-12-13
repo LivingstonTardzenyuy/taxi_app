@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 import 'package:taxi_app/theme/colors.dart';
 
+import '../../../widgets/drawer.dart';
 import '../widgets/driver_info.dart';
 import '../widgets/payment.tab.dart';
 import '../widgets/trip_details.dart';
@@ -10,7 +11,8 @@ import '../widgets/vehicle_info.dart';
 
 
 class TripDetailsScreen extends StatefulWidget {
-  const TripDetailsScreen({super.key});
+  TripDetailsScreen({super.key});
+  GlobalKey<ScaffoldState> adminScaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   State<TripDetailsScreen> createState() => _TripDetailsScreenState();
@@ -29,6 +31,8 @@ class _TripDetailsScreenState extends State<TripDetailsScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: widget.adminScaffoldKey,
+      drawer: const AdminDrawer(),
       backgroundColor: const Color(0xfff3f7fa),
       appBar: AppBar(
         title: const Text("Trips"),
@@ -36,7 +40,10 @@ class _TripDetailsScreenState extends State<TripDetailsScreen>
         elevation: 0,
         backgroundColor: Colors.white,
         leading: IconButton(
-          icon: const Icon(Icons.menu),
+          icon:   IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black, size: 28),
+            onPressed: () => widget.adminScaffoldKey.currentState!.openDrawer(),
+          ),
           onPressed: () {},
         ),
       ),

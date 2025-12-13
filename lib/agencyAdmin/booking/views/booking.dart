@@ -3,13 +3,17 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
+import '../../widgets/drawer.dart';
 import 'assign_driver.dart';
 class AdminBookingsScreen extends StatelessWidget {
-  const AdminBookingsScreen({super.key});
+   AdminBookingsScreen({super.key});
+  final GlobalKey<ScaffoldState> adminScaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: adminScaffoldKey,
+      drawer: const AdminDrawer(),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
@@ -22,7 +26,10 @@ class AdminBookingsScreen extends StatelessWidget {
               /// TOP HEADER (Menu icon + Title)
               Row(
                 children: [
-                  const Icon(Icons.menu, size: 30, color: Colors.black87),
+                  IconButton(
+                    icon: const Icon(Icons.menu, color: Colors.black, size: 28),
+                    onPressed: () => adminScaffoldKey.currentState!.openDrawer(),
+                  ),
                   const Spacer(),
                   const Text(
                     "Bookings",

@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
+import '../../widgets/drawer.dart';
+
 class AssignDriverScreen extends StatelessWidget {
-  const AssignDriverScreen({super.key});
+   AssignDriverScreen({super.key});
+  final GlobalKey<ScaffoldState> adminScaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: adminScaffoldKey,
+      drawer: const AdminDrawer(),
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
@@ -15,9 +20,9 @@ class AssignDriverScreen extends StatelessWidget {
           "Assign Driver",
           style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.w600),
         ),
-        leading: IconButton(
-          icon: const Icon(Icons.menu, color: Colors.black),
-          onPressed: () {},
+        leading:   IconButton(
+          icon: const Icon(Icons.menu, color: Colors.black, size: 28),
+          onPressed: () => adminScaffoldKey.currentState!.openDrawer(),
         ),
       ),
       body: SingleChildScrollView(

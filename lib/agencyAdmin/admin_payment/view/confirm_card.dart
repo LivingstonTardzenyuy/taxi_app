@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/agencyAdmin/admin_payment/view/add_payment.dart';
+import 'package:taxi_app/agencyAdmin/admin_payment/view/transaction_history.dart';
 
 import '../../../client_app/authentication/widgets/primary_button.dart';
 import '../../../theme/colors.dart';
@@ -69,7 +70,8 @@ class ConfirmCard extends StatelessWidget {
                 child: PrimaryButton(
                     label: "Confirm Payment Method",
                     onPressed: () {
-                      Get.to(PaymentAdd());
+                      Get.to(TransactionHistoryScreen());
+                      // Get.to(PaymentAdd());
                     }),
               ),
             )

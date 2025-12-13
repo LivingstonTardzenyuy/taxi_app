@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:taxi_app/agencyAdmin/admin_payment/view/payment.dart';
 import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/assigned_trip.dart';
+import 'package:taxi_app/agencyAdmin/feedback/views/feedback.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
 
 import '../booking/views/booking.dart';
@@ -110,7 +111,7 @@ class AdminDrawer extends StatelessWidget {
                       title: "Feedback",
                       isActive: activePage == "Feedback",
                         onTap: () {
-
+                          Get.to(FeedbackScreen());
                         }
                     ),
                     _menuItem(
