@@ -42,7 +42,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10)
+        borderRadius: BorderRadius.circular(14)
       ),
       height: 46,
       child: TextField(

@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:taxi_app/agencyAdmin/admin_payment/view/payment.dart';
 import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/assigned_trip.dart';
 import 'package:taxi_app/agencyAdmin/feedback/views/feedback.dart';
+import 'package:taxi_app/agencyAdmin/travellers/views/car_request/car_request_list.dart';
 import 'package:taxi_app/client_app/features/bookings/booking.dart';
+import 'package:taxi_app/client_app/features/profile/profile.dart';
 
 import '../booking/views/booking.dart';
 import '../pricing_model/view/pricing_model.dart';
@@ -79,7 +81,7 @@ class AdminDrawer extends StatelessWidget {
                       title: "Request",
                       isActive: activePage == "Request",
                         onTap: () {
-
+                          Get.to(CarRequestList());
                         }
                     ),
                     _menuItem(
@@ -120,6 +122,16 @@ class AdminDrawer extends StatelessWidget {
                       isActive: activePage == "Payments",
                         onTap: () {
                           Get.to(AdminPaymentsScreen());
+                        }
+                    ),
+
+
+                    _menuItem(
+                        icon: Icons.person,
+                        title: "Profile",
+                        isActive: activePage == "Profile",
+                        onTap: () {
+                          Get.to(ProfileScreen());
                         }
                     ),
                     const Spacer(),
