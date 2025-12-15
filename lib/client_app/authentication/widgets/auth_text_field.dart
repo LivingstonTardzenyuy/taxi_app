@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 // colors import not required here
 
@@ -8,6 +10,7 @@ class AuthTextField extends StatefulWidget {
   final TextInputType keyboardType;
   final bool showPasswordToggle; // New optional parameter
   final Widget? prefixIcon;
+  final double? height;
 
   const AuthTextField({
     Key? key,
@@ -17,6 +20,7 @@ class AuthTextField extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.showPasswordToggle = false, // Default to false
     this.prefixIcon,
+    this.height = 55,
   }) : super(key: key);
 
   @override
@@ -44,7 +48,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(14)
       ),
-      height: 46,
+      height: widget.height,
       child: TextField(
         controller: widget.controller,
         obscureText: _isObscure,

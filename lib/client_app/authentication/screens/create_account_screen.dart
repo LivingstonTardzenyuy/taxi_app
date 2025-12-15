@@ -3,6 +3,8 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/agencyAdmin/home/views/home.dart';
 import 'package:taxi_app/client_app/authentication/screens/sign_in_client.dart';
+import 'package:taxi_app/driver_app/profile/views/required_steps.dart';
+import '../../../driver_app/profile/views/profile.dart';
 import '../controllers/auth_controller.dart';
 import '../widgets/auth_header.dart';
 import '../widgets/auth_text_field.dart';
@@ -107,6 +109,19 @@ class _CreateAccountScreenState extends State<CreateAccountScreen> {
                     },
                     child: Text(
                       "Agency Admin",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 18
+                      ),
+                    )
+                ),
+                const SizedBox(height: 10,),
+                TextButton(
+                    onPressed: () {
+                      Get.to(RequiredStepsScreen());
+                    },
+                    child: Text(
+                      "Driver Side",
                       style: TextStyle(
                           fontWeight: FontWeight.w700,
                           fontSize: 18
