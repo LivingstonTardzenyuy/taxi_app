@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 // no direct AppColors usage here yet
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
+import 'package:taxi_app/driver_app/payment/views/payment_details.dart';
 import '../../../agencyAdmin/admin_payment/view/confirm_card.dart';
 import '../../../client_app/authentication/widgets/auth_text_field.dart';
 import '../../../theme/colors.dart';
@@ -206,7 +207,7 @@ class _AddCardDriverScreenState extends State<AddCardDriverScreen> {
                   label: 'Save',
                   onPressed: () {
                     // TODO: perform validation and submit card to backend
-                    Get.to(ConfirmCard());
+                    Get.to(DriverPaymentDetails());
                   },
                 ),
               ),
