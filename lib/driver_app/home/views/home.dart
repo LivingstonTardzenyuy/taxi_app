@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 import 'package:taxi_app/theme/colors.dart';
+
+import '../../driver_profile/views/profile.dart';
 
 class DriverHomeScreen extends StatelessWidget {
 	const DriverHomeScreen({Key? key}) : super(key: key);
@@ -13,7 +17,7 @@ class DriverHomeScreen extends StatelessWidget {
 					// Background image
 					Positioned.fill(
 						child: Image.asset(
-							'assets/images/city.jpg', // replace with your asset path
+							'assets/booking/booking.jpg',
 							fit: BoxFit.cover,
 						),
 					),
@@ -39,7 +43,12 @@ class DriverHomeScreen extends StatelessWidget {
 													color: Colors.white.withOpacity(0.9),
 													shape: BoxShape.circle,
 												),
-												child: const Icon(Icons.person_outline, color: Colors.black54),
+												child: IconButton(
+														onPressed: () {
+															Get.to(DriverProfileMenu());
+														},
+														icon: Icon(Icons.person_outline, color: Colors.black54),
+												)
 											),
 											const Spacer(),
 											Row(

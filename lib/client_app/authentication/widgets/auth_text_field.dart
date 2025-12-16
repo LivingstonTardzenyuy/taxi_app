@@ -46,7 +46,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(14)
+        borderRadius: BorderRadius.circular(16)
       ),
       height: widget.height,
       child: TextField(
@@ -64,7 +64,7 @@ class _AuthTextFieldState extends State<AuthTextField> {
           fillColor: Colors.white,
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
-            borderSide: const BorderSide(color: Color(0xFFC7C7C766)), // Set border color to grey
+            borderSide: const BorderSide(color: Color(0xFFDDDDDD)), // Set border color to grey
           ),
           enabledBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(8),
