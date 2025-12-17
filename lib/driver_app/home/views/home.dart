@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
+import 'package:taxi_app/driver_app/booking/views/earning.dart';
 import 'package:taxi_app/theme/colors.dart';
 
+import '../../booking/views/bookings.dart';
 import '../../driver_profile/views/profile.dart';
 
 class DriverHomeScreen extends StatelessWidget {
@@ -71,7 +73,17 @@ class DriverHomeScreen extends StatelessWidget {
 											Expanded(child: _infoCard(title: 'Earned Today', value: '\$230', icon: Icons.account_balance_wallet)),
 										],
 									),
-
+									TextButton(
+											onPressed: () {
+												Get.to(DriverEarningScreen());
+											},
+											child: Text(
+													"Booking Section",
+												style: TextStyle(
+													fontSize: 26,
+												),
+											)
+									),
 									// Expand to push button to bottom
 									const Expanded(child: SizedBox()),
 

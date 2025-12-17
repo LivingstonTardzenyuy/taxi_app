@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/driver_app/booking/views/pre_booked.dart';
 import 'package:taxi_app/theme/colors.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
-class EarningScreen extends StatelessWidget {
-	const EarningScreen({Key? key}) : super(key: key);
+class DriverEarningScreen extends StatelessWidget {
+	const DriverEarningScreen({Key? key}) : super(key: key);
 
 	Widget _statCard(String title, String value, IconData icon) {
 		return Expanded(
@@ -16,8 +19,13 @@ class EarningScreen extends StatelessWidget {
 				),
 				child: Column(
 					crossAxisAlignment: CrossAxisAlignment.start,
+					mainAxisAlignment: MainAxisAlignment.start,
 					children: [
-						Row(children: [Icon(icon, size: 18, color: AppColors.primaryColor), const SizedBox(width: 8), Text(title, style: const TextStyle(fontSize: 12, color: Colors.black54))]),
+						Column(
+								crossAxisAlignment: CrossAxisAlignment.start,
+								children: [Icon(icon, size: 18, color: AppColors.primaryColor),
+							const SizedBox(height: 8),
+							Text(title, style: const TextStyle(fontSize: 12, color: Colors.black54))]),
 						const SizedBox(height: 8),
 						Text(value, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
 					],
@@ -28,7 +36,10 @@ class EarningScreen extends StatelessWidget {
 
 	Widget _listItem(String name) {
 		return ListTile(
-			leading: const CircleAvatar(backgroundColor: Color(0xFFEEF6F6), child: Icon(Icons.person, color: AppColors.primaryColor)),
+			leading: Image.asset(
+				"assets/images/img.png"
+			),
+			// leading: const CircleAvatar(backgroundColor: Color(0xFFEEF6F6), child: Icon(Icons.person, color: AppColors.primaryColor)),
 			title: Text(name, style: const TextStyle(fontWeight: FontWeight.w600)),
 			subtitle: const Text('2km | 30mins | \$12'),
 		);
@@ -59,17 +70,22 @@ class EarningScreen extends StatelessWidget {
 						]),
 						const SizedBox(height: 16),
 						Expanded(
-							child: Card(
-								shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-								child: ListView(
-									children: [
-										_listItem('Kendrick Anne'),
-										const Divider(height: 1),
-										_listItem('Kendrick Anne'),
-										const Divider(height: 1),
-										_listItem('Kendrick Anne'),
-									],
-								),
+							child: InkWell(
+								onTap: () {
+									Get.to(PreBookedScreen());
+								},
+							  child: Card(
+							  	shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+							  	child: ListView(
+							  		children: [
+							  			_listItem('Kendrick Anne'),
+							  			const Divider(height: 1),
+							  			_listItem('Kendrick Anne'),
+							  			const Divider(height: 1),
+							  			_listItem('Kendrick Anne'),
+							  		],
+							  	),
+							  ),
 							),
 						),
 					],
