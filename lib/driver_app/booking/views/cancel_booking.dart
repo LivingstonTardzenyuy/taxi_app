@@ -45,14 +45,15 @@ class _CancelBookingScreenState extends State<CancelBookingScreen> {
                 const SizedBox(height: 18),
                 // simple illustration
                 Container(
-                  height: 120,
-                  child: const Center(child: Icon(Icons.airplane_ticket, size: 72, color: AppColors.primaryColor)),
-                ),
+                    height: 150, width: 150,
+                    child: Image.asset("assets/onboarding/onboarding_four.png")),
                 const SizedBox(height: 8),
                 const Text('Booking Canceled Successfully', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700)),
                 const SizedBox(height: 8),
                 const Text('Your booking with CRN #9489wu9 has been canceled successfully', textAlign: TextAlign.center, style: TextStyle(color: Colors.black54)),
-                const Spacer(),
+                // const Spacer(),
+                const SizedBox(height: 48),
+
                 SizedBox(
                   width: double.infinity,
                   child: PrimaryButton(

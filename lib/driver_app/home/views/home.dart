@@ -7,6 +7,8 @@ import 'package:taxi_app/theme/colors.dart';
 
 import '../../booking/views/bookings.dart';
 import '../../driver_profile/views/profile.dart';
+import '../../emergency_alert/views/sos_emergency.dart';
+import '../../ride_request/views/ride_request.dart';
 
 class DriverHomeScreen extends StatelessWidget {
 	const DriverHomeScreen({Key? key}) : super(key: key);
@@ -79,6 +81,30 @@ class DriverHomeScreen extends StatelessWidget {
 											},
 											child: Text(
 													"Booking Section",
+												style: TextStyle(
+													fontSize: 26,
+												),
+											)
+									),
+									const SizedBox(height: 16,),
+									TextButton(
+											onPressed: () {
+												Get.to(SosEmergencyScreen());
+											},
+											child: Text(
+													"Emergency Section",
+												style: TextStyle(
+													fontSize: 26,
+												),
+											)
+									),
+									const SizedBox(height: 16,),
+									TextButton(
+											onPressed: () {
+												Get.to(RideRequestScreen());
+											},
+											child: Text(
+													"Ride Request Section",
 												style: TextStyle(
 													fontSize: 26,
 												),

@@ -86,7 +86,7 @@ class _PreBookedScreenState extends State<PreBookedScreen> with SingleTickerProv
         _locations(),
         const SizedBox(height: 12),
         Center(child: Image.asset("assets/images/img.png")),
-        const SizedBox(height: 12),
+        const SizedBox(height: 42),
 
         Container(
             width: double.infinity,
