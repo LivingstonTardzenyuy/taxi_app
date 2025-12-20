@@ -13,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String selectedOption = "taxi"; // default selected
+  bool isBalanceVisible = true; // Track whether balance is visible
+  double walletBalance = 1250.50; // Example wallet balance
 
   @override
   Widget build(BuildContext context) {
@@ -27,8 +29,101 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
 
-          Container(
-            color: Colors.black.withOpacity(0.2),
+          // Wallet container
+          Positioned(
+            top: 135,
+            left: 16,  // Add left padding
+            right: 16, // Add right padding
+            child: Container(
+              height: 100,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.3),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  children: [
+                    // Wallet Icon
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      // decoration: BoxDecoration(
+                      //   color: AppColors.primaryColor.withOpacity(0.1),
+                      //   borderRadius: BorderRadius.circular(12),
+                      // ),
+                      child: Icon(
+                        Icons.wallet_outlined,
+                        size: 32,
+                        color: Colors.black,
+                      ),
+                    ),
+
+                    const SizedBox(width: 16),
+
+                    // Balance information
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Balance',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Row(
+                            children: [
+                              Text(
+                                isBalanceVisible ? '\$$walletBalance' : '******',
+                                style: TextStyle(
+                                  fontSize: 24,
+                                  fontWeight: FontWeight.bold,
+                                  color: AppColors.primaryColor,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              GestureDetector(
+                                onTap: () {
+                                  setState(() {
+                                    isBalanceVisible = !isBalanceVisible;
+                                  });
+                                },
+                                child: Icon(
+                                  isBalanceVisible ? Icons.visibility : Icons.visibility_off,
+                                  size: 20,
+                                  color: Colors.grey[600],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    // Add money button
+                    Container(
+                      color: Color(0xFF226E734A),
+                      height: 30, width: 30,
+                      child: CircleAvatar(
+                        child: Icon(Icons.add, color: Colors.white),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ),
 
           SafeArea(
@@ -48,6 +143,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
+              width: double.infinity,
               padding: const EdgeInsets.all(20),
               decoration: const BoxDecoration(
                 color: Colors.white,
@@ -55,6 +151,13 @@ class _HomeScreenState extends State<HomeScreen> {
                   topLeft: Radius.circular(24),
                   topRight: Radius.circular(24),
                 ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 10,
+                    spreadRadius: 2,
+                  ),
+                ],
               ),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -132,6 +235,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         borderRadius: BorderRadius.circular(12),
         color: isSelected ? const Color(0xFF226E73) : Colors.white,
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.2),
+            spreadRadius: 1,
+            blurRadius: 3,
+            offset: const Offset(0, 2),
+          ),
+        ],
       ),
       child: Column(
         children: [

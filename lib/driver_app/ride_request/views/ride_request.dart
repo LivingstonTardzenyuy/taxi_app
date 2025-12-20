@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/driver_app/ride_request/views/customer_location.dart';
 import 'package:taxi_app/theme/colors.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
@@ -103,7 +106,12 @@ class RideRequestScreen extends StatelessWidget {
                           ),
                           const SizedBox(width: 12),
                           Expanded(
-                            child: PrimaryButton(label: 'Accept', onPressed: () {}, height: 48),
+                            child: PrimaryButton(
+                                label: 'Accept',
+                                onPressed: () {
+                                  Get.to(CustomerLocationScreen());
+                                },
+                                height: 48),
                           ),
                         ]),
                       ],
