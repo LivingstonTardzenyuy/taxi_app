@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/agencyAdmin/profile/views/sub_admin.dart';
 import 'package:taxi_app/client_app/authentication/widgets/auth_text_field.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
@@ -39,9 +42,11 @@ class EditProfileScreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        child: PrimaryButton(label: 'Reset Filters', onPressed: () {}),
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.only(bottom: 380.0, left: 18, right: 18),
+        child: PrimaryButton(label: 'Reset Filters', onPressed: () {
+            Get.to(SubAdminScreen());
+        }),
       ),
     );
   }

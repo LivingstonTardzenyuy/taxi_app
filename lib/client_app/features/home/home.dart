@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:taxi_app/client_app/bus_healer/views/departure_town.dart';
 import 'package:taxi_app/client_app/features/bookings/views/searching_ride_screen.dart';
 import 'package:taxi_app/client_app/features/home/views/pick_up.dart';
+import 'package:taxi_app/driver_app/payment/views/payment_methods.dart';
 import 'package:taxi_app/theme/colors.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -34,95 +36,141 @@ class _HomeScreenState extends State<HomeScreen> {
             top: 135,
             left: 16,  // Add left padding
             right: 16, // Add right padding
-            child: Container(
-              height: 100,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(15),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.withOpacity(0.3),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: const Offset(0, 3),
-                  ),
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  children: [
-                    // Wallet Icon
-                    Container(
-                      padding: const EdgeInsets.all(12),
-                      // decoration: BoxDecoration(
-                      //   color: AppColors.primaryColor.withOpacity(0.1),
-                      //   borderRadius: BorderRadius.circular(12),
-                      // ),
-                      child: Icon(
-                        Icons.wallet_outlined,
-                        size: 32,
-                        color: Colors.black,
+            child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.3),
+                        spreadRadius: 2,
+                        blurRadius: 5,
+                        offset: const Offset(0, 3),
                       ),
-                    ),
-
-                    const SizedBox(width: 16),
-
-                    // Balance information
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            'Balance',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.grey[600],
-                              fontWeight: FontWeight.w500,
-                            ),
+                    ],
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Row(
+                      children: [
+                        // Wallet Icon
+                        Container(
+                          padding: const EdgeInsets.all(12),
+                          // decoration: BoxDecoration(
+                          //   color: AppColors.primaryColor.withOpacity(0.1),
+                          //   borderRadius: BorderRadius.circular(12),
+                          // ),
+                          child: Icon(
+                            Icons.wallet_outlined,
+                            size: 32,
+                            color: Colors.black,
                           ),
-                          const SizedBox(height: 4),
-                          Row(
+                        ),
+
+                        const SizedBox(width: 16),
+
+                        // Balance information
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
-                                isBalanceVisible ? '\$$walletBalance' : '******',
+                                'Balance',
                                 style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.bold,
-                                  color: AppColors.primaryColor,
+                                  fontSize: 14,
+                                  color: Colors.grey[600],
+                                  fontWeight: FontWeight.w500,
                                 ),
                               ),
-                              const SizedBox(width: 8),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    isBalanceVisible = !isBalanceVisible;
-                                  });
-                                },
-                                child: Icon(
-                                  isBalanceVisible ? Icons.visibility : Icons.visibility_off,
-                                  size: 20,
-                                  color: Colors.grey[600],
-                                ),
+                              const SizedBox(height: 4),
+                              Row(
+                                children: [
+                                  Text(
+                                    isBalanceVisible ? '\$$walletBalance' : '******',
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.primaryColor,
+                                    ),
+                                  ),
+                                  const SizedBox(width: 8),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        isBalanceVisible = !isBalanceVisible;
+                                      });
+                                    },
+                                    child: Icon(
+                                      isBalanceVisible ? Icons.visibility : Icons.visibility_off,
+                                      size: 20,
+                                      color: Colors.grey[600],
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
-                        ],
-                      ),
-                    ),
+                        ),
 
-                    // Add money button
-                    Container(
-                      color: Color(0xFF226E734A),
-                      height: 30, width: 30,
-                      child: CircleAvatar(
-                        child: Icon(Icons.add, color: Colors.white),
-                      ),
+                        // Add money button
+                        InkWell(
+                          onTap: () {
+                            Get.to(PaymentMethodsScreen());
+                          },
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: Color(0xFF226E73),
+                            ),
+                            height: 30, width: 30,
+                            child: Icon(Icons.add,
+                                color: Colors.white),
+                          ),
+                        ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
-              ),
+                const SizedBox(height: 35,),
+                Container(
+                  padding: const EdgeInsets.all(15),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    color: Colors.white,
+
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.local_hospital),
+                      const SizedBox(width: 8,),
+                      Text(
+                        "Current Location",
+                        style: TextStyle(
+                        ),
+                      ),
+                      Spacer(),
+                      Icon(Icons.calendar_month, color: Colors.black,)
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 50,),
+                TextButton(
+                    onPressed: () {
+                      Get.to(DepartureTownScreen());
+                    },
+                    child: Text(
+                      "Travelling",
+                      style: TextStyle(
+                          fontSize: 18, color: Colors.black
+
+                      ),
+                    )
+                )
+              ],
             ),
           ),
 

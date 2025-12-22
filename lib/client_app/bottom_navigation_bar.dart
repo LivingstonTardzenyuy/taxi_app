@@ -62,7 +62,7 @@ class _ClientBottomNavigationBarState extends State<ClientBottomNavigationBar> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: AppColors.primaryColor,
+        selectedItemColor: Color(0xFF732255),
         unselectedItemColor: Colors.grey,
         onTap: _onItemTapped,
         showUnselectedLabels: true,

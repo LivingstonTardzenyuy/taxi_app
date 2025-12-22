@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/client_app/bottom_navigation_bar.dart';
+import 'package:taxi_app/driver_app/home/views/home.dart';
 
 import '../../../authentication/widgets/primary_button.dart';
 
@@ -248,7 +252,9 @@ class _TipDriverScreenState extends State<TipDriverScreen> {
                     Expanded(
                       child: PrimaryButton(
                         label: "Pay Tip",
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.offAll(ClientBottomNavigationBar());
+                        },
                       ),
                     ),
                   ],
