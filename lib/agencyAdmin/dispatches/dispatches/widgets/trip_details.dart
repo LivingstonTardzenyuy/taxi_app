@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/agencyAdmin/dispatches/dispatches/views/dispatches.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
 class TripDetailsTab extends StatelessWidget {
@@ -31,7 +34,9 @@ class TripDetailsTab extends StatelessWidget {
               Expanded(
                 child: PrimaryButton(
                   label: "Update Details",
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(DispatchScreen());
+                  },
                 ),
               )
             ],

@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 
+import '../../../booking/views/rider_booking.dart';
+import '../../dispatches/dispatches/views/dispatches.dart';
 import '../../widgets/drawer.dart';
 
 class AssignDriverScreen extends StatelessWidget {
@@ -172,18 +177,11 @@ class AssignDriverScreen extends StatelessWidget {
 
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF007A70),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                        padding: const EdgeInsets.symmetric(vertical: 14),
-                      ),
-                      child: const Text(
-                        "Assign",
-                        style: TextStyle(fontSize: 16, color: Colors.white),
-                      ),
-                    ),
+                    child: PrimaryButton(
+                        label: "Assign",
+                        onPressed: () {
+                          Get.to(RiderBookingScreen());
+                        })
                   ),
                 ],
               ),
