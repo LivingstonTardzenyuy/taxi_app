@@ -93,14 +93,14 @@ class AdminDrawer extends StatelessWidget {
 
                         }
                     ),
-                    _menuItem(
-                      icon: Icons.map_outlined,
-                      title: "Tracking Bookings",
-                      isActive: activePage == "Tracking Bookings",
-                        onTap: () {
-                          Get.to(BookingScreen());
-                        }
-                    ),
+                    // _menuItem(
+                    //   icon: Icons.map_outlined,
+                    //   title: "Tracking Bookings",
+                    //   isActive: activePage == "Tracking Bookings",
+                    //     onTap: () {
+                    //       Get.to(BookingScreen());
+                    //     }
+                    // ),
                     _menuItem(
                       icon: Icons.local_fire_department_outlined,
                       title: "Price model",
