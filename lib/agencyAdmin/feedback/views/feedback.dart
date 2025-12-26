@@ -92,10 +92,18 @@ class FeedbackScreen extends StatelessWidget {
 						crossAxisAlignment: CrossAxisAlignment.start,
 						children: [
 							// small highlighted label
-							Container(
-								padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-								decoration: BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(4)),
-								child: const Text('Feedback', style: TextStyle(fontWeight: FontWeight.w700)),
+							Center(
+							  child: Container(
+							  	padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+							  	// decoration: BoxDecoration(color: Colors.yellow.shade700, borderRadius: BorderRadius.circular(4)),
+							  	child: Expanded(
+							  			child: const Text('Feedback',
+							  					style: TextStyle(
+							  							fontWeight: FontWeight.w700
+							  					)
+							  			)
+							  	),
+							  ),
 							),
 							const SizedBox(height: 12),
 
@@ -111,9 +119,9 @@ class FeedbackScreen extends StatelessWidget {
 									crossAxisAlignment: CrossAxisAlignment.start,
 									children: [
 										const Text('3.6', style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700, color: Colors.white)),
-										const SizedBox(height: 8),
+										const SizedBox(height: 12),
 										_stars(3.6),
-										const SizedBox(height: 5),
+										const SizedBox(height: 12),
 										const Text('(923 Reviews)',
 												style: TextStyle(
 														color: Colors.white

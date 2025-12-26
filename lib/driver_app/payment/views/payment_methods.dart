@@ -75,7 +75,7 @@ class PaymentMethodsScreen extends StatelessWidget {
                   ),
                   height: 65,
                   child: Card(
-                    color: Colors.white,
+                    color: Color(0xFF0000004D),
                     child: InkWell(
                       onTap: () {
                         Get.to(AddCardDriverScreen());

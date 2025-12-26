@@ -117,14 +117,20 @@ class AdminBookingsScreen extends StatelessWidget {
                     padding:
                     const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
                     color: isEven ? Colors.grey.shade200 : Colors.white,
-                    child: Row(
-                      children: [
-                        _tableCell((index + 1).toString()),
-                        _tableCell("Jonathan Fred", flex: 2),
-                        _tableCell("Seat #"),
-                        _tableCell("Yaounde"),
-                        _tableCell("Maroua"),
-                      ],
+                    child: InkWell(
+                      onTap: (){
+                        Get.to(AssignDriverScreen());
+
+                      },
+                      child: Row(
+                        children: [
+                          _tableCell((index + 1).toString()),
+                          _tableCell("Jonathan Fred", flex: 2),
+                          _tableCell("Seat #"),
+                          _tableCell("Yaounde"),
+                          _tableCell("Maroua"),
+                        ],
+                      ),
                     ),
                   );
                 }),
