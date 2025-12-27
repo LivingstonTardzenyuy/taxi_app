@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
+
+import 'cars.dart';
 
 class CarImageScreen extends StatelessWidget {
   const CarImageScreen({Key? key}) : super(key: key);
@@ -37,19 +41,19 @@ class CarImageScreen extends StatelessWidget {
   }
 
   Widget _buildImageTile(BuildContext context, String title) {
-    return GestureDetector(
-      onTap: () {
-        // TODO: Launch image picker or preview
-      },
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: const Color(0xFFECECEC)),
-          boxShadow: const [BoxShadow(color: Color(0x0A000000), blurRadius: 4, offset: Offset(0,2))],
-        ),
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 14),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: const Color(0xFFECECEC)),
+        boxShadow: const [BoxShadow(color: Color(0x0A000000), blurRadius: 4, offset: Offset(0,2))],
+      ),
+      child: InkWell(
+        onTap: () {
+          Get.to(CarsScreen());
+        },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

@@ -75,14 +75,19 @@ class PaymentMethodsScreen extends StatelessWidget {
                   ),
                   height: 65,
                   child: Card(
-                    color: Color(0xFF0000004D),
+                    color: Color(0xFFFFFFFF),
                     child: InkWell(
                       onTap: () {
                         Get.to(AddCardDriverScreen());
                       },
                       child: Center(child: const Text(
                           'Fund account',
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700))),
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w800
+                          )
+                        )
+                      ),
                     ),
                   ),
                 ),

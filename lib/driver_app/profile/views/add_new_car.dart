@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/auth_text_field.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
 import 'package:taxi_app/theme/colors.dart';
@@ -59,14 +61,14 @@ class _AddNewCarScreenState extends State<AddNewCarScreen> {
             const SizedBox(height: 12),
             _buildNavTile('Add Image', () => Navigator.of(context).push(MaterialPageRoute(builder: (_) => const CarImageScreen()))),
             const Spacer(),
-            SizedBox(
+            Container(
+              padding: const EdgeInsets.only(bottom: 30),
               width: double.infinity,
-              height: 52,
               child: PrimaryButton(
                 label: 'Add New Car',
                 onPressed: () {
                   // TODO: Hook up save logic
-                  Navigator.of(context).pop();
+                  Get.to(CarDocumentsScreen());
                 },
               ),
             ),

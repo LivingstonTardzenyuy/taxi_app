@@ -8,6 +8,7 @@ import 'package:taxi_app/theme/colors.dart';
 import '../../booking/views/bookings.dart';
 import '../../driver_profile/views/profile.dart';
 import '../../emergency_alert/views/sos_emergency.dart';
+import '../../profile/views/add_new_car.dart';
 import '../../ride_request/views/ride_request.dart';
 
 class DriverHomeScreen extends StatelessWidget {
@@ -105,6 +106,17 @@ class DriverHomeScreen extends StatelessWidget {
 											},
 											child: Text(
 													"Ride Request Section",
+												style: TextStyle(
+													fontSize: 26,
+												),
+											)
+									),
+									TextButton(
+											onPressed: () {
+												Get.to(AddNewCarScreen());
+											},
+											child: Text(
+													"Profile Setup New Car section",
 												style: TextStyle(
 													fontSize: 26,
 												),

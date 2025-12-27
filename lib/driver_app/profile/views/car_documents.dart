@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/client_app/authentication/widgets/primary_button.dart';
+import 'package:taxi_app/driver_app/profile/views/car_image.dart';
 
 class CarDocumentsScreen extends StatelessWidget {
   const CarDocumentsScreen({Key? key}) : super(key: key);
@@ -30,12 +33,12 @@ class CarDocumentsScreen extends StatelessWidget {
             const SizedBox(height: 12),
             _buildDocTile(context, 'Car Permit'),
             const Spacer(),
-            SizedBox(
+            Container(
+              padding: const EdgeInsets.only(bottom: 40),
               width: double.infinity,
-              height: 52,
               child: PrimaryButton(
                 label: 'Done',
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => Get.to(CarImageScreen()),
               ),
             )
           ],
