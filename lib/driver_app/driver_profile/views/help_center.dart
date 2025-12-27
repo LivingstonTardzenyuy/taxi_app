@@ -47,7 +47,7 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> with SingleTickerPr
         child: Column(
           children: [
             AuthTextField(hint: 'Search', controller: _searchController),
-            const SizedBox(height: 12),
+            const SizedBox(height: 22),
             TabBar(
               controller: _tabController,
               indicatorColor: AppColors.primaryColor,

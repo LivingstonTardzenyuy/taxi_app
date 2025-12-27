@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:taxi_app/agencyAdmin/admin_payment/view/add_payment.dart';
 import 'package:taxi_app/agencyAdmin/admin_payment/view/transaction_history.dart';
+import 'package:taxi_app/driver_app/payment/views/charge_funds_1.dart';
 import 'package:taxi_app/driver_app/payment/views/transaction_history.dart';
 
 import '../../../client_app/authentication/widgets/primary_button.dart';
@@ -71,7 +72,8 @@ class DriverPaymentDetails extends StatelessWidget {
                 child: PrimaryButton(
                     label: "Confirm Payment Method",
                     onPressed: () {
-                      Get.to(DriverTransactionHistoryScreen());
+                      // Get.to(DriverTransactionHistoryScreen());
+                      Get.to(ChargeFunds1());
                       // Get.to(PaymentAdd());
                     }),
               ),

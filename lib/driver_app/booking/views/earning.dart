@@ -13,9 +13,10 @@ class DriverEarningScreen extends StatelessWidget {
 			child: Container(
 				padding: const EdgeInsets.all(12),
 				decoration: BoxDecoration(
-					color: Colors.white,
-					borderRadius: BorderRadius.circular(8),
-					border: Border.all(color: const Color(0xFFECECEC)),
+				borderRadius: BorderRadius.circular(10),
+					// color: Colors.white,
+					border: Border.all(color: Colors.grey, width: 1),
+					// border: Border.all(color: const Color(0xFFECECEC)),
 				),
 				child: Column(
 					crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,7 +69,7 @@ class DriverEarningScreen extends StatelessWidget {
 							const SizedBox(width: 10),
 							_statCard('Earnings', '\$255', Icons.monetization_on),
 						]),
-						const SizedBox(height: 16),
+						const SizedBox(height: 22),
 						Expanded(
 							child: InkWell(
 								onTap: () {
